@@ -1,6 +1,7 @@
 ﻿using CHUSHKA.Data;
 using CHUSHKA.Data.Models;
 using CHUSHKA.Models;
+using CHUSHKA.Models.Products;
 using CHUSHKA.Models.Users;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -17,14 +18,14 @@ namespace CHUSHKA.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly RoleManager<Role> roleManager;
-        private readonly ApplicationDbContext context;
+        private readonly ApplicationDbContext dbContext;
 
         public UsersController(UserManager<User> userManager, SignInManager<User> signInManager, RoleManager<Role> roleManager, ApplicationDbContext context)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.roleManager = roleManager;
-            this.context = context;
+            this.dbContext = context;
         }
 
         [Route("/")]
@@ -48,11 +49,30 @@ namespace CHUSHKA.Controllers
 
         public IActionResult AdminHome()
         {
-            return View();
+            ICollection<ProductInIndexPage> model = this.dbContext.Products
+                .Select(x => new ProductInIndexPage()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price.ToString("0.00"),
+                    Description = x.Description
+                })
+                .ToList();
+            return View(model);
         }
         public IActionResult UserHome()
         {
-            return View();
+            ICollection<ProductInIndexPage> model = this.dbContext.Products
+                .Select(x => new ProductInIndexPage()
+                {
+                    Id = x.Id,
+                    Name = x.Name,
+                    Price = x.Price.ToString("0.00"),
+                    Description = x.Description
+                })
+                .ToList();
+
+            return View(model);
         }
 
         [Route("Index")]
@@ -102,16 +122,16 @@ namespace CHUSHKA.Controllers
         {
             if (this.ModelState.IsValid && inputModel.Password == inputModel.ConfirmPassword)
             {
-                var user = new User() 
-                { 
-                    FirstName = inputModel.FirstName, 
-                    LastName = inputModel.LastName, 
-                    UserName = inputModel.UserName, 
+                var user = new User()
+                {
+                    FirstName = inputModel.FirstName,
+                    LastName = inputModel.LastName,
+                    UserName = inputModel.UserName,
                     Email = inputModel.Email,
-                    EmailConfirmed=true
+                    EmailConfirmed = true
                 };
 
-                var result =await this.userManager.CreateAsync(user, inputModel.Password);
+                var result = await this.userManager.CreateAsync(user, inputModel.Password);
 
                 if (result.Succeeded)
                 {

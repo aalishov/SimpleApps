@@ -25,6 +25,7 @@ namespace CHUSHKA.Data.Seeder
 
             var seeders = new List<ISeeder>
             {
+                new TypeSeeder(),
                 new RoleSeeder(),
                 new UserSeeder(),
             };

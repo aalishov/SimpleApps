@@ -1,4 +1,6 @@
-﻿<div class="container-fluid">
+﻿@model ICollection<CHUSHKA.Models.Products.ProductInIndexPage>
+
+<div class="container-fluid">
     <header>
         <nav class="navbar navbar-expand-lg chushka-bg-color">
             <a class="navbar-brand nav-link-white" href="/">CHUSHKA</a>
@@ -31,121 +33,25 @@
             <h2>Greetings, admin!</h2>
             <h4>Enjoy your work today!</h4>
         </div>
-        <hr class="hr-2 bg-dark"/>
+        <hr class="hr-2 bg-dark" />
         <div class="container-fluid product-holder">
             <div class="row d-flex justify-content-around">
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Chushkopek</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for peking chushkas.
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$500</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Chushkopek</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for peking chushkas.
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$500</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Chushkopek</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for peking chushkas.
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$500</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Chushkopek</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for peking chushkas.
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$500</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Chushkopek</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for peking chushkas.
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$500</h6>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-around mt-4">
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Injektoplqktor</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for basically everything. It's ba...
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1.56</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Injektoplqktor</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for basically everything. It's ba...
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1.56</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Injektoplqktor</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for basically everything. It's ba...
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1.56</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Injektoplqktor</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for basically everything. It's ba...
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1.56</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Injektoplqktor</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        A universal tool for basically everything. It's ba...
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1.56</h6>
-                </div>
-            </div>
-            <div class="row d-flex justify-content-around mt-4">
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Something</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        Something
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1000</h6>
-                </div>
-                <div class="product col-md-2 chushka-bg-color rounded-top rounded-bottom">
-                    <h5 class="text-center mt-3">Something</h5>
-                    <hr class="hr-1 bg-white"/>
-                    <p class="text-white text-center">
-                        Something
-                    </p>
-                    <hr class="hr-1 bg-white"/>
-                    <h6 class="text-center text-white mb-3">$1000</h6>
-                </div>
+                @foreach (var item in Model)
+                {
+                    <div class=" col-md-3">
+                        <a href="/bullshit" class="col-md-2">
+                            <div class="product p-1 chushka-bg-color rounded-top rounded-bottom">
+                                <h5 class="text-center mt-3">@item.Name</h5>
+                                <hr class="hr-1 bg-white" />
+                                <p class="text-white text-center">
+                                    @item.Description
+                                </p>
+                                <hr class="hr-1 bg-white" />
+                                <h6 class="text-center text-white mb-3">@item.Price</h6>
+                            </div>
+                        </a>
+                    </div>
+                }
             </div>
         </div>
     </main>
