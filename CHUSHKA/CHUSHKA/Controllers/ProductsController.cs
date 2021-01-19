@@ -44,7 +44,7 @@ namespace CHUSHKA.Controllers
             this.dbContext.Products.Add(product);
             await this.dbContext.SaveChangesAsync();
 
-            return this.RedirectToAction("Index","Users"); ;
+            return this.RedirectToAction("Index", "Users"); ;
         }
 
         public IActionResult Edit()
@@ -52,14 +52,35 @@ namespace CHUSHKA.Controllers
             return this.View();
         }
 
-        public IActionResult Details()
+        [HttpGet]
+        public IActionResult Details(string id)
         {
-            return this.View();
+            var model = this.dbContext.Products
+                .Select(x => new DetailsProductViewModel()
+                {
+                    Id=x.Id,
+                    Name = x.Name,
+                    Price = x.Price.ToString("0.00"),
+                    Type = x.Type.Name,
+                    Description = x.Description
+                })
+                .FirstOrDefault(x => x.Id == id);
+            return this.View(model);
         }
 
-        public IActionResult DetailsAdmin()
+        public IActionResult AdminDetails(string id)
         {
-            return this.View();
+            var model = this.dbContext.Products
+               .Select(x => new DetailsProductViewModel()
+               {
+                   Id = x.Id,
+                   Name = x.Name,
+                   Price = x.Price.ToString("0.00"),
+                   Type = x.Type.Name,
+                   Description = x.Description
+               })
+               .FirstOrDefault(x => x.Id == id);
+            return this.View(model);
         }
 
         public IActionResult Delete()

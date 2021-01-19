@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace CHUSHKA.Data.Seeder
 {
-    public class RoleSeeder:ISeeder
+    public class RoleSeeder : ISeeder
     {
         public async Task SeedAsync(ApplicationDbContext dbContext, IServiceProvider serviceProvider)
         {

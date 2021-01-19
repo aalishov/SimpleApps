@@ -7,10 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Views\Products\AdminDetails.cshtml" />
     <Content Remove="Views\Products\Create.cshtml" />
     <Content Remove="Views\Products\Delete.cshtml" />
     <Content Remove="Views\Products\Details.cshtml" />
-    <Content Remove="Views\Products\DetailsAdmin.cshtml" />
     <Content Remove="Views\Products\Edit.cshtml" />
   </ItemGroup>
 
@@ -18,7 +18,7 @@
     <None Include="Views\Products\Create.cshtml" />
     <None Include="Views\Products\Delete.cshtml" />
     <None Include="Views\Products\Details.cshtml" />
-    <None Include="Views\Products\DetailsAdmin.cshtml" />
+    <None Include="Views\Products\AdminDetails.cshtml" />
     <None Include="Views\Products\Edit.cshtml" />
   </ItemGroup>
 

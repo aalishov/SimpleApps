@@ -39,7 +39,7 @@
                 @foreach (var item in Model)
                 {
                     <div class=" col-md-3">
-                        <a href="/bullshit" class="col-md-2">
+                        <a asp-controller="Products" asp-action="AdminDetails" asp-route-id="@item.Id" class="col-md-2">
                             <div class="product p-1 chushka-bg-color rounded-top rounded-bottom">
                                 <h5 class="text-center mt-3">@item.Name</h5>
                                 <hr class="hr-1 bg-white" />
