@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Type = CHUSHKA.Data.Models.Type;
 
 namespace CHUSHKA.Controllers
 {
@@ -47,24 +48,43 @@ namespace CHUSHKA.Controllers
             return this.RedirectToAction("Index", "Users"); ;
         }
 
-        public IActionResult Edit()
+        [HttpGet]
+        public IActionResult Edit(string id)
         {
-            return this.View();
+            EditProductViewModel model = dbContext.Products
+                .Select(x => new EditProductViewModel
+                {
+                    Id=x.Id,
+                    Name=x.Name,
+                    Price=x.Price,
+                    Description=x.Description,
+                    Type=x.Type.Name
+                   
+                })
+                .FirstOrDefault(x => x.Id == id);
+            return this.View(model);
+        }
+        [HttpPost]
+        public IActionResult Edit(EditProductViewModel model)
+        {
+
+            return this.RedirectToAction("Index", "Users"); 
         }
 
         [HttpGet]
         public IActionResult Details(string id)
         {
+
             var model = this.dbContext.Products
-                .Select(x => new DetailsProductViewModel()
-                {
-                    Id=x.Id,
-                    Name = x.Name,
-                    Price = x.Price.ToString("0.00"),
-                    Type = x.Type.Name,
-                    Description = x.Description
-                })
-                .FirstOrDefault(x => x.Id == id);
+            .Select(x => new DetailsProductViewModel()
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Price = x.Price.ToString("0.00"),
+                Type = x.Type.Name,
+                Description = x.Description
+            })
+            .FirstOrDefault(x => x.Id == id);
             return this.View(model);
         }
 
