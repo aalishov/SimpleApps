@@ -31,3 +31,4 @@ export async function editItem(id, item) {
 export async function deleteItem(id) {
     return await api.del(host + '/articles' + id);
 }
+

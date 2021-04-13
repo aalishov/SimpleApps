@@ -33,8 +33,8 @@ namespace SoftWiki.Controllers
 
             return articles;
         }
-        [HttpGet]
-        [Route("api/[controller]/all")]
+
+        [HttpGet("all")]
         public IEnumerable<Article> GetAll()
         {
             return this.context.Articles.ToList();

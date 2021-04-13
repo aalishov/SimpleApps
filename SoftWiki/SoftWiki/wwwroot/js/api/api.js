@@ -3,20 +3,22 @@
 };
 
 async function request(url, options) {
+    //console.log(url);
+    //console.log(options);
     try {
         const response = await fetch(url, options);
-
-          if (response.ok == false) {
-              const error = await response.json();
-              throw new Error(error.message);
-          }
+        //console.log(response);
+        if (response.ok == false) {
+            const error = await response.json();
+            throw new Error(error.message);
+        }
 
         try {
             const data = await response.json();
-            console.log(data);
+            //console.log(data);
             return data;
         } catch (err) {
-            console.log(response);
+            //console.log(response);
             return response;
         }
 
@@ -30,7 +32,7 @@ async function request(url, options) {
 function getOptions(method = 'get', body) {
     const options = {
         method,
-        mode: "no-cors",
+       // mode: "no-cors",
         headers: {}
     };
 
@@ -38,12 +40,12 @@ function getOptions(method = 'get', body) {
     if (token != null) {
         options.headers['X-Authorization'] = token;
     }
-
     if (body) {
+        options.headers['Accept']='application/json',
         options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(body)
     }
-
+    console.log(body);
     return options;
 
 }
@@ -53,6 +55,7 @@ export async function get(url) {
 }
 
 export async function post(url, data) {
+    console.log(data);
     return await request(url, getOptions('post', data))
 }
 
@@ -65,8 +68,9 @@ export async function del(url) {
 }
 
 export async function login(email, password) {
+   
     const result = await post(settings.host + '/users/login', { email, password });
-
+    //console.log(result);
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('authToken', result.accessToken);
     sessionStorage.setItem('userId', result._id);
@@ -75,7 +79,11 @@ export async function login(email, password) {
 }
 
 export async function register(email, password) {
-    const result = await post(settings.host + '/users/register', { email, password });
+    const user = {
+        email: email,
+        pasword:password
+    }
+    const result = await post(settings.host + '/users/register', user);
 
     sessionStorage.setItem('email', result.email);
     sessionStorage.setItem('authToken', result.accessToken);
