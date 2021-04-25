@@ -1,0 +1,41 @@
+﻿@model IEnumerable<HousekeeperManager.ViewModels.Missions.MissionClientIndexVM>
+
+<h1>Моите задачи</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <td>@Html.DisplayNameFor(model => model.Budget)</td>
+            <td>@Html.DisplayNameFor(model => model.Category)</td>
+            <td>@Html.DisplayNameFor(model => model.Location)</td>
+            <td>@Html.DisplayNameFor(model => model.Address)</td>
+            <td>@Html.DisplayNameFor(model => model.Status)</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Budget)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Редактиране</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Детайли</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Изтриване</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

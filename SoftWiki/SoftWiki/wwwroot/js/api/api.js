@@ -45,7 +45,7 @@ function getOptions(method = 'get', body) {
         options.headers['Content-Type'] = 'application/json';
         options.body = JSON.stringify(body)
     }
-    console.log(body);
+    //console.log(body);
     return options;
 
 }
@@ -55,7 +55,7 @@ export async function get(url) {
 }
 
 export async function post(url, data) {
-    console.log(data);
+    //console.log(data);
     return await request(url, getOptions('post', data))
 }
 
